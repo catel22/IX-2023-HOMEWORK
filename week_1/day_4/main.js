@@ -102,7 +102,6 @@ function checkGuess(event) {
       input = document.getElementById("submitButton").innerHTML =
         "Refresh to play again!";
     } else {
-      input = null;
       document.getElementById("machine-response").innerHTML =
         "Incorrect! Guesses left: " + guess;
     }
@@ -113,6 +112,7 @@ function checkGuess(event) {
       title +
       '". Refresh to play again! ';
   }
+  input=null;
 }
 
 function getHint(event) {
