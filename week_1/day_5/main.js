@@ -1,10 +1,12 @@
 class Task {
   constructor(taskName, complete) {
     this.taskName = taskName;
-    this.complete = complete;
+    this.complete = false;
   }
 
   static fromJSON(json) {
+    const task = new Task(json.taskName);
+    task.completed = json.completed;
     return new Task(json.taskName, json.complete);
   }
 }
@@ -21,12 +23,6 @@ class UI {
 
     this.taskList = [];
     this.loadTasksFromLocalStorage();
-    if (this.taskList.length > 0) {
-        this.complete = (document.getElementById("completeCheck"));
-    }
-    else {
-        this.complete = 0;
-    }
     this.renderTaskTable();
   }
 
@@ -38,7 +34,7 @@ class UI {
       return;
     }
 
-    const task = new Task(this.taskName.value, this.complete); // default for completeness is false
+    const task = new Task(this.taskName.value); // default for completeness is false
 
     this.taskList.push(task);
 
@@ -95,7 +91,7 @@ class UI {
     const deleteButton = document.createElement("button");
 
     deleteButton.setAttribute("class", "btn btn-danger btn-sm");
-    deleteButton.innerHTML = "🗑️";
+    deleteButton.innerHTML = `🗑️`;
     deleteButton.addEventListener("click", () =>
       this.onRemoveTaskClicked(task)
     );

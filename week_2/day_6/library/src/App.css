@@ -1,0 +1,136 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.patterns {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+}
+
+.pt1 {
+  background-color: #eee;
+  background-size: 60px 60px;
+  background-position: 0 0, 30px 30px;
+  background-image: -webkit-linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%, black), -webkit-linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%, black);
+  background-image: -moz-linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%, black), -moz-linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%, black);
+  background-image: -ms-linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%, black), -ms-linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%, black);
+  background-image: -o-linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%, black), -o-linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%, black);
+  background-image: linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%, black), linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%, black);
+}
+
+@keyframes spin {
+  from {
+      transform: rotate(0deg)
+  }
+
+  to {
+      transform: rotate(360deg)
+  }
+}
+
+.canvas {
+  position: relative;
+  margin: auto;
+  margin-top: 5%;
+  width: 600px;
+  height: 420px;
+  display: block;
+  background: none;
+
+  animation-name: spin;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.face {
+  position: absolute;
+  top: 16.5%;
+  left: 25%;
+  height: 67%;
+  width: 50%;
+  background-color: yellow;
+  border-radius: 50%;
+  border: solid 2px;
+  z-index: 1;
+}
+
+.left-eye {
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  height: 55px;
+  width: 40px;
+  background-color: black;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.right-eye {
+  position: absolute;
+  top: 25%;
+  left: 58%;
+  height: 55px;
+  width: 40px;
+  background-color: black;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.mouth {
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  height: 100px;
+  width: 120px;
+  background-color: black;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.mouth-cover {
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  height: 45px;
+  width: 120px;
+  background-color: yellow;
+  z-index: 3;
+  
+}
