@@ -9,13 +9,12 @@ function App() {
   const [pokemon, setPokemon] = useState([]);
 
   // Http adress
-  const url = 'https://pokeapi.co/api/v2/pokemon-species/1/'
+  const url = 'https://pokeapi.co/api/v2/pokemon'
 
   // Function to fetch the pokemon
-  async function fetchPokemon() {
-    const res = await fetch(url , {
+  async function fetchPokemon(pokemonName) {
+    const res = await fetch(url + pokemonName, {
       method: 'GET',
-      // What does this mean?
       headers: {
         'Content-Type': 'application/json',
       },
@@ -23,6 +22,10 @@ function App() {
 
   const data = await res.json();
   console.log(data);
+
+  let name = data.species.name;
+
+  
     /*let pokemonData = data.map((base_happiness) => {
       return new Pokemon(pokemon.name);
     });
