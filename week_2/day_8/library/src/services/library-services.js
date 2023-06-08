@@ -1,5 +1,13 @@
 // need to import database reference from firebase file
-import { collection, addDoc, getDocs, updateDoc } from "./firebase/firestore";
+import {
+  collection,
+  addDoc,
+  query,
+  getDocs,
+  doc,
+  updateDoc,
+  deleteDoc,
+} from "firebase/firestore";
 import { db } from "../firebase/firebase";
 import { Book } from "../models/Book";
 
@@ -27,11 +35,13 @@ class LibraryService {
       const data = doc.data();
 
       // create new book
-      const book = new Book(data.title, data.author, data.isbn);
+      const book = new Book(doc.id, data.title, data.author, data.isbn);
 
       //empty array to push books to
-      books.push(books);
+      books.push(book);
     });
+
+    return books;
   }
 
   async createBook(book) {
@@ -41,11 +51,12 @@ class LibraryService {
 
     // add document to this collection
     const docRef = addDoc(collectionRef, {
-      name: book.title,
+      title: book.title,
       author: book.author,
       isbn: book.isbn,
     });
 
+    book.id = docRef.id;
     return book;
   }
 
@@ -53,24 +64,29 @@ class LibraryService {
   // we need reference to document we want to update
   // then call function with values to update
   async updateBook(book) {
-    const docRef = doc(db, this.collection, book.isbn);
+    const docRef = doc(db, this.collection, book.id);
 
     await updateDoc(docRef, {
       title: book.title,
       author: book.author,
-      isbn: book.isbn
+      isbn: book.isbn,
     }); // await because returns promise
 
     //return to app component to update UI
     return book;
   }
 
-  async deleteBook(book) {
-    const docRef = doc(db, this.collection, book.isbn);
+  async deleteBook(bookId) {
+    try{
+    const docRef = doc(db, this.collection, bookId);
 
     await deleteDoc(docRef);
+    }
+    catch(err) {
+      alert(err);
+    }
   }
 }
 
-const service = new BookService();
+const service = new LibraryService();
 export default service;

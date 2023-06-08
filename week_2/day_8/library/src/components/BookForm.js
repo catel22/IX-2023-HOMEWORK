@@ -1,20 +1,38 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 export default function BookForm(props) {
     const [title, setTitle] = useState('');
     const [author, setAuthor] = useState('');
     const [isbn, setIsbn] = useState('');
+
+    useEffect(() => {
+      if (props.bookToEdit) {
+        setTitle(props.bookToEdit.title);
+        setAuthor(props.bookToEdit.author);
+        setIsbn(props.bookToEdit.isbn);
+      }
+    }, [props.bookToEdit]);
+  
   
   function onBookFormSubmit(event) {
     event.preventDefault();
 
+    if (!isValid()) {
+      return;
+    }
+
     props.onBookCreate(title, author, isbn); // send book through
-    //setBook(null);
+    setTitle('');
+    setAuthor('');
+    setIsbn('');
+  }
+
+  function isValid() {
+    return title !== "" && author !== "" && isbn !== "";
   }
 
   return (
     <div>
-      <h1>Library</h1>
 
       <form id="form" onSubmit={onBookFormSubmit}>
         <div className="mb-3">
@@ -24,7 +42,7 @@ export default function BookForm(props) {
             type="text"
             className="form-control"
             value={title}
-            onChange={(e) => setTitle(e.target.value)}
+            onChange={(event) => setTitle(event.target.value)}
           />
         </div>
 
@@ -35,7 +53,7 @@ export default function BookForm(props) {
             type="text"
             className="form-control"
             value={author}
-            onChange={(e) => setAuthor(e.target.value)}
+            onChange={(event) => setAuthor(event.target.value)}
           />
         </div>
 
@@ -46,7 +64,7 @@ export default function BookForm(props) {
             type="text"
             className="form-control"
             value={isbn}
-            onChange={(e) => setIsbn(e.target.value)}
+            onChange={(event) => setIsbn(event.target.value)}
           />
         </div>
 
