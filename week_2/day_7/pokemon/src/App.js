@@ -3,13 +3,14 @@ import { useState } from 'react';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import PokemonTable from './components/PokemonTable';
+import PokemonForm from './components/PokemonForm';
 import { Pokemon } from './models/pokemon';
 
 function App() {
   const [pokemon, setPokemon] = useState([]);
 
   // Http adress
-  const url = 'https://pokeapi.co/api/v2/pokemon'
+  const url = 'https://pokeapi.co/api/v2/pokemon/';
 
   // Function to fetch the pokemon
   async function fetchPokemon(pokemonName) {
@@ -25,36 +26,30 @@ function App() {
 
   let name = data.species.name;
 
-  
-    /*let pokemonData = data.map((base_happiness) => {
-      return new Pokemon(pokemon.name);
-    });
-    // console.log(pokemonData);*/
-
-    setPokemon(data);
+  //get moves that can be learned
+  let moves = [];
+  for(let i=0; i<data.moves.length; i++) {
+      moves.push(data.moves[i].move.name);
   }
 
-  async function fetchApiPokemon() {
-    let url = 'http://localhost:3000/';
-    const res = await fetch(url + 'pokemon', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
+  //get img
+  const imageURL = data.sprites.front_default;
 
-    const data = await res.json();
-    console.log(data);
+  //get base stats (hp, attack, defense, spatk, spdef, spd )
+  let stats = [];
+  for (let i=0; i<6; i++) {
+  stats.push(data.stats[i].base_stat);
   }
 
+  let pokemon = new Pokemon(name, moves, imageURL, stats);
+  console.log(pokemon);
+  setPokemon(pokemon);
+  }
 
 
   return (
     <div className="text-center mt-5 mx-5">
-      <button className=" btn btn-primary" onClick={fetchPokemon}>
-        Fetch Pokemon
-      </button>
-
+      <PokemonForm fetchPokemon={fetchPokemon}></PokemonForm>
       <PokemonTable pokemon={pokemon}></PokemonTable>
     </div>
   );
