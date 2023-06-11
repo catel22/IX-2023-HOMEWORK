@@ -35,14 +35,13 @@ export default function LibraryPage(props) {
   async function onInitialLoad() {
     // Add try-catch here if there is error so we can show to user
     // if we do try-catch in book-service then user will not see
-
+    setLoading(true);
     //set books to those from bookservice (stored on firestore)
     try {
       const books = await LibraryService.fetchBooks(); // fetching from internet, returns function
       // filter each book that comes through, all books must be equal to user id
       setBooks(books.filter((book) => book.userId === props.user.uid));
     } catch (err) {
-      // still need to properly handle the error
       console.log(err);
     }
 
@@ -58,7 +57,7 @@ export default function LibraryPage(props) {
     );
 
     // add to books state
-    setBookToEdit(null);
+    //setBookToEdit(null);
     setBooks([...books, book]);
   }
 
@@ -105,7 +104,7 @@ export default function LibraryPage(props) {
       </div>
       <img
         src="https://i.pinimg.com/736x/98/7a/33/987a3311c90132aa67276a700f38190f.jpg"
-        class="img-fluid mx-auto d-block text-center mt-5"
+        className="img-fluid mx-auto d-block text-center mt-5"
         alt="Library Books"
       ></img>
     </div>

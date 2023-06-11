@@ -5,7 +5,7 @@ export default function BookTable(props) {
   return (
     <div>
       {
-        props.loading ? <Spinner></Spinner>: <table className="table mt-5">
+        props.loading ? ( <Spinner></Spinner> ): (<table className="table mt-5">
         <thead>
           <tr>
             <th>Title</th>
@@ -17,7 +17,7 @@ export default function BookTable(props) {
         <tbody id="table-body">
           {props.books.map((book) => {
             return (
-              <tr key={book.id}>
+              <tr key={book.isbn}>
                 <td className="fst-italic">{book.title}</td>
                 <td>{book.author}</td>
                 <td>{book.isbn}</td>
@@ -39,7 +39,7 @@ export default function BookTable(props) {
             );
           })}
         </tbody>
-      </table>
+      </table> )
       }
     </div>
   )

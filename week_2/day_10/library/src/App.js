@@ -1,6 +1,7 @@
 import "./App.css";
 
 import "bootstrap/dist/css/bootstrap.min.css";
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
 // Do not need brackets for export default in book.js
 // Import react hooks

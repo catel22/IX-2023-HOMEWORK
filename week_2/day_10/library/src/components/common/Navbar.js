@@ -11,7 +11,7 @@ export default function Navbar(props) {
   return (
     <nav className="navbar navbar-expand-lg bg-light">
       <div className="container-fluid">
-        <div className="navbar-brand">Navbar</div>
+        <div></div>
         <button
           className="navbar-toggler"
           type="button"

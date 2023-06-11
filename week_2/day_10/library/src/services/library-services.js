@@ -35,7 +35,7 @@ import {
         const data = doc.data();
   
         // create new book
-        const book = new Book(doc.id, data.title, data.author, data.isbn);
+        const book = new Book(doc.id, data.title, data.author, data.isbn, data.userId);
   
         //empty array to push books to
         books.push(book);

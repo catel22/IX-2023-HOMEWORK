@@ -26,6 +26,7 @@ export default function LoginPage() {
       //alert(err.message);
       setError(err.message);
     }
+    setLoading(false);
   }
 
   return (

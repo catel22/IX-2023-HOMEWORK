@@ -14,14 +14,14 @@ export default function BookForm(props) {
     }, [props.bookToEdit]);
   
   
-  function onBookFormSubmit(event) {
+  async function onBookFormSubmit(event) {
     event.preventDefault();
 
     if (!isValid()) {
       return;
     }
 
-    props.onBookCreate(title, author, isbn); // send book through
+    await props.onBookCreate(title, author, isbn); // send book through
     setTitle('');
     setAuthor('');
     setIsbn('');
