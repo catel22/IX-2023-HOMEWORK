@@ -7,6 +7,7 @@ import {
     doc,
     updateDoc,
     deleteDoc,
+    where,
   } from "firebase/firestore";
   import { db } from "../firebase/firebase";
   import { Book } from "../models/Book";
@@ -20,25 +21,28 @@ import {
     // asynchronous js with await functions
     // accept book from app component
   
-    async fetchBooks() {
+    async fetchBooks(user) {
       // step 1: reference to collection
       const collectionRef = collection(db, this.collection);
   
-      // create a query with a reference to the collection
-      const q = query(collectionRef);
+      // create a query with a reference to the collection, get all books where userId=desired id
+      const q = query(collectionRef, where('userId', '==', user.uid));
       const querySnapshot = await getDocs(q);
   
       const books = [];
   
       // for each document, get the data and create a book
       querySnapshot.forEach((doc) => {
-        const data = doc.data();
+        //const data = doc.data();
   
         // create new book
-        const book = new Book(doc.id, data.title, data.author, data.isbn, data.userId);
+        //const book = new Book(doc.id, data.title, data.author, data.isbn, data.userId);
   
         //empty array to push books to
-        books.push(book);
+        // books.push(book);
+
+        // static functions available becuase capital, whole class
+        books.push(Book.fromFirebase(doc));
       });
   
       return books;
@@ -50,12 +54,15 @@ import {
       const collectionRef = collection(db, this.collection);
   
       // add document to this collection
-      const docRef = addDoc(collectionRef, {
+      /*const docRef = await addDoc(collectionRef, {
         title: book.title,
         author: book.author,
         isbn: book.isbn,
         userId: book.userId,
-      });
+      });*/
+
+      // toJson available to instances
+      const docRef = await addDoc(collectionRef, book.toJson())
   
       book.id = docRef.id;
       return book;
@@ -67,13 +74,14 @@ import {
     async updateBook(book) {
       const docRef = doc(db, this.collection, book.id);
   
-      await updateDoc(docRef, {
+      /*await updateDoc(docRef, {
         title: book.title,
         author: book.author,
         isbn: book.isbn,
-      }); // await because returns promise
+      }); // await because returns promise*/
   
       //return to app component to update UI
+      await updateDoc(docRef, book.toJson());
       return book;
     }
   

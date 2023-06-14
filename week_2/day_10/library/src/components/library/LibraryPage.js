@@ -38,9 +38,10 @@ export default function LibraryPage(props) {
     setLoading(true);
     //set books to those from bookservice (stored on firestore)
     try {
-      const books = await LibraryService.fetchBooks(); // fetching from internet, returns function
+      const books = await LibraryService.fetchBooks(props.user); // fetching from internet, returns function
       // filter each book that comes through, all books must be equal to user id
-      setBooks(books.filter((book) => book.userId === props.user.uid));
+      //setBooks(books.filter((book) => book.userId === props.user.uid));
+      setBooks(books);
     } catch (err) {
       console.log(err);
     }

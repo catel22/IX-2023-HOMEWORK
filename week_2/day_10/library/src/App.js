@@ -1,7 +1,7 @@
 import "./App.css";
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import 'bootstrap-icons/font/bootstrap-icons.css';
+import "bootstrap-icons/font/bootstrap-icons.css";
 
 // Do not need brackets for export default in book.js
 // Import react hooks
@@ -20,6 +20,7 @@ import RegisterPage from "./components/auth/RegisterPage";
 import Navbar from "./components/common/Navbar";
 import RequireAuth from "./components/common/RequireAuth";
 import Spinner from "./components/common/Spinner";
+import ProfilePage from "./components/profile/ProfilePage";
 
 function App() {
   // set user
@@ -47,11 +48,19 @@ function App() {
               </RequireAuth>
             }
           ></Route>
+          <Route
+            path="/profile"
+            element={
+              <RequireAuth user={user}>
+                <ProfilePage user={user} />
+              </RequireAuth>
+            }
+          ></Route>
           <Route path="/login" element={<LoginPage />}></Route>
           <Route path="/register" element={<RegisterPage />}></Route>
         </Routes>
       ) : (
-        <div className='mt-5 text-center'>
+        <div className="mt-5 text-center">
           <Spinner></Spinner>
         </div>
       )}

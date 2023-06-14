@@ -1,7 +1,7 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { signOut } from 'firebase/auth';
-import { auth } from '../../firebase/firebase';
+import React from "react";
+import { Link } from "react-router-dom";
+import { signOut } from "firebase/auth";
+import { auth } from "../../firebase/firebase";
 
 export default function Navbar(props) {
   async function onLogoutClicked() {
@@ -31,11 +31,18 @@ export default function Navbar(props) {
               </Link>
             </li>
             {props.user ? (
-              <li className="nav-item">
-                <div className="btn btn-primary" onClick={onLogoutClicked}>
-                  Logout
-                </div>
-              </li>
+              <>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/profile">
+                    Profile
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <div className="btn btn-primary" onClick={onLogoutClicked}>
+                    Logout
+                  </div>
+                </li>
+              </>
             ) : (
               <>
                 <li className="nav-item">
