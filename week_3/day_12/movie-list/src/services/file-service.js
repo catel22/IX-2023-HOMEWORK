@@ -1,7 +1,7 @@
-import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
+import { ref, getDownloadURL, uploadBytesResumable, deleteObject } from "firebase/storage";
 
 //import storage var
-import { storage } from "../firebase/firebase";
+import { storage, deleteFile } from "../firebase/firebase";
 
 class FileService {
   uploadImage(file, onUploadProgress) {
@@ -43,6 +43,13 @@ class FileService {
       const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
       onUploadProgress(progress);
     }
+  }
+
+  // take url as parameter because adress to storage location
+  async deleteFile(downloadURL) {
+    // reference to filebase storage
+    const fileRef = ref(storage, downloadURL);
+    await deleteObject()
   }
 }
 

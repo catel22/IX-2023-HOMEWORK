@@ -1,0 +1,25 @@
+.profile-row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid lightgray;
+}
+
+/* enables us to reference specific item in class*/
+.profile-row:last-child {
+    border-bottom: none;
+}
+
+.profile-holder{
+    display: flex;
+    align-items: center;
+}
+
+/* reference specifically image tag*/
+.profile-holder img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50px;
+}

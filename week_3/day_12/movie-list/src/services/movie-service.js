@@ -34,6 +34,12 @@ class MovieService {
 
         return movies;
     }
+
+    // accept movieId as parameter to delete movie by Id
+    async deleteMovie(movieId) {
+        const docRef = doc(db, this.collection, movieId);
+        await deleteDoc(docRef);
+    }
 }
 
 const service = new MovieService();

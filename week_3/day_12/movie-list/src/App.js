@@ -1,6 +1,7 @@
 import "./App.css";
 
 import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap-icons/font/bootstrap-icons.css";
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
@@ -18,6 +19,14 @@ import AddMoviePage from "./components/AddMoviePage";
 // add routing
 
 // file service and movie service
+
+// bootstrap-icons and react-bootstrap for modals
+
+// delete movie and delete file capabilities
+// update fetchmovies and movie grid
+// add remove movie and react-bootstrap Modal
+
+// add an image selector
 
 function App() {
   return (

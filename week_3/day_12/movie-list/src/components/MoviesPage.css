@@ -1,0 +1,18 @@
+.card {
+    position: relative;
+    margin: 10px;
+}
+
+.movie-img {
+    width: 200px;
+    height: 250px;
+    object-fit: cover;
+}
+
+.remove-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    color: aliceblue;
+}

@@ -5,6 +5,7 @@ import FileService from "../services/file-service";
 import MovieService from "../services/movie-service";
 
 import { Movie } from '../models/Movie';
+import ImageSelector from "./ImageSelector";
 
 export default function AddMoviePage() {
   const [title, setTitle] = useState("");
@@ -50,16 +51,19 @@ export default function AddMoviePage() {
         <div className="card card-body">
           <h1>Add Movie</h1>
 
+          <ImageSelector title="Movie Cover Image"
+          onFileChange={(file) => setFile(file)}></ImageSelector>
+
           <form onSubmit={onFormSubmit}>
-            <div className="mb-3">
+            {/* <div className="mb-3">
               <label className="form-label">Movie Cover Image</label>
               <input
                 onChange={onFileSelect}
                 type="file"
                 className="form-control"
-                mutiple
+                multiple
               ></input>
-            </div>
+            </div> */}
 
             <div className="mb-3">
               <label className="form-label">Movie Title</label>
