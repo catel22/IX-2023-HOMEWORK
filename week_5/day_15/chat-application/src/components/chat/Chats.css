@@ -1,9 +1,71 @@
+.chats-sidebar {
+    border: 1px solid lightgreen;
+    border-radius: 10px;
+    padding: 10px;
+    /* 100 view height minus some amount*/
+    height: calc(100vh - 200px);
+    background-color: lightpink;
+}
+
+.chat-header {
+    font-family: 'Times New Roman', Times, serif;
+    color: lightpink;
+}
+
+.messages-card{
+    padding: 10px;
+    border: 1px solid lightblue;
+    border-radius: 10px;
+    height: calc(100vh - 200px);
+    position: relative;
+    background-color: lightgreen;
+}
+
+.messages{
+    /* make sure it overflows by itself */
+    overflow-y: auto;
+    height: calc(100% - 100px);
+}
+
+.single-message{
+    padding: 10px;
+    border-radius: 10px;
+    background-color: lightgray;
+    margin-bottom: 10px;
+    width: fit-content;
+    max-width: 65%;
+}
+
+.message-form{
+    position: absolute;
+    bottom: 0px;
+    left: 10px;
+    right: 10px;
+}
+
+.message-left {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.message-left .single-message{
+    background-color: lightblue;
+    color: white;
+    border-top-right-radius: 0px;
+}
+
+.message-right .single-message{
+    background-color: lightgray;
+    color: black;
+    border-top-left-radius: 0px;
+}
+
 .profile-row{
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 10px;
-    border-bottom: 1px solid lightgray;
+    border-bottom: 1px solid black;
 }
 
 /* enables us to reference specific item in class*/
@@ -22,4 +84,5 @@
     height: 50px;
     object-fit: cover;
     border-radius: 50px;
+    margin: 10px;
 }

@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
-import './Chats.css';
+import "./Chats.css";
 
 // import services
-import ProfileService from '../../services/profileservice';
-import ChatService from '../../services/chatservice';
+import ProfileService from "../../services/profileservice";
+import ChatService from "../../services/chatservice";
 
 // import components
-import AvailableChats from './AvailableChats';
-import ChatMessages from './ChatMessages';
-import ChatsSidebar from './ChatsSidebar';
+import AvailableChats from "./AvailableChats";
+import ChatMessages from "./ChatMessages";
+import ChatsSidebar from "./ChatsSidebar";
 
 export default function ChatsPage({ user }) {
   // component state
@@ -39,7 +39,12 @@ export default function ChatsPage({ user }) {
 
   return (
     <div className="container my-4">
-      <h3>Chats: {user.email}</h3>
+      <h3 className="chat-header">
+        <div className="profile-holder">
+          {user.email}
+        </div>
+      </h3>
+      <div className="profile-holder"></div>
 
       <div>
         <AvailableChats profiles={profiles} user={user} chats={chats} />

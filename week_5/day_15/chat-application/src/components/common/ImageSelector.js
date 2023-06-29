@@ -34,6 +34,7 @@ export default function ImageSelector({ title, onFileChange }) {
         ref={inputRef}
         type="file"
         onChange={onFileSelected}
+        required
       ></input>
 
       {fileContent ? (
