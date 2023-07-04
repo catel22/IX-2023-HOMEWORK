@@ -9,7 +9,10 @@ import {
   class FileService {
     uploadImage(file, onUploadProgress) {
       return new Promise((resolve, reject) => {
-        const fileRef = ref(storage, 'profile-images/' + file.name);
+        const fileRef = ref(
+          storage,
+          'profile-images/' + this.getUniqueFileName(file)
+        );
         const uploadTask = uploadBytesResumable(fileRef, file);
   
         uploadTask.on(
@@ -33,6 +36,18 @@ import {
           }
         );
       });
+    }
+
+    getUniqueFileName(file) {
+      // profile-picture.jpg add timestamp
+      const dotIndex = file.name.lastIndexOf('.');
+      // dotIndex is position of full stop
+      const fileName = file.namesubstring(0, dotIndex);
+      // get values from index of dot onwards
+      const fileExtension = file.name.substring(dotIndex);
+      const timestamp = new Date().getTime();
+      // new file name
+      return fileName = '-' + timestamp + fileExtension;
     }
   
     handleProgressUpdate(snapshot, onUploadProgress) {

@@ -69,7 +69,6 @@ export default function RegisterPage() {
           <ImageSelector
             title="Profile Picture"
             onFileChange={(file) => setFile(file)}
-            required
           />
 
           <div className="mb-3">

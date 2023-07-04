@@ -4,26 +4,26 @@ Steps for building a chat application with react:
 // clean out template
 
 // install packages
-//  - bootstrap
-//  - bootstrap-icons
-//  - firebase
-//  - react-router-dom
+// - bootstrap
+// - bootstrap-icons
+// - firebase
+// - react-router-dom
 
 // import bootstrap css, js & icons int App.js
 // verify import add className="text-center"
 
 // create folders
-//  - components
-//    - auth
-//    - chats
-//    - common
-//  - firebase
-//  - models
-//  - services
+// - components
+// - auth
+// - chats
+// - common
+// - firebase
+// - models
+// - services
 
 // add firebase.js
-//  - import getFirestore, getAuth, getStorage
-//  - export { db, auth, storage }
+// - import getFirestore, getAuth, getStorage
+// - export { db, auth, storage }
 
 // add our NavBar from Day_10 & Update Brand
 // Scaffold App Navigation
@@ -92,3 +92,7 @@ Steps for building a chat application with react:
 // update ChatsService
 // add createChat
 // add subscribeToUserChats
+
+Personal notes:
+// Look at extras in class repository
+// See here for firebase hosting: https://docs.google.com/presentation/d/1DFh9burEdZFJadjbyjR4AHZFAghuo291YHPJzv9avhc/edit#slide=id.g2484c9fd356_0_13
