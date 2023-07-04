@@ -1,0 +1,72 @@
+Given any generic tree:
+How do we visit every Node 1 time?
+
+Breadth First Search (Across)
+Steps - Iteratively
+ - Create a queue and a variable to store the values of Nodes visited
+ - Place the root Node in the queue
+ - Loop as long as there is anything in the queue
+  - Dequeue a Node from the queue and push the value of the Node into the variable that stores the Nodes
+  - If there is a left property on the Node dequeued, add it to the queue
+  - If there is a right property on the Node dequeued, add it to the queue
+ - Return the variable that stores the values
+
+//      10
+//   6     15
+// 3  8      20
+
+visited = [10, 6, 15, 3, 8, 20];
+
+
+Depth First Search (Down) PreOrder
+Steps - Recursively
+ - Create a queue and a variable to store the values of Nodes visited
+ - Store the root of the tree in a variable called current
+ - Write a helper function which accepts a Node
+  - Push the value of the Node to the variable that stores the values
+  - If the Node has a left property, call the helper function with the left property on the Node
+  - If the Node has a right property, call the helper function with the right property on the Node
+ - Invoke the helper function with the current variable
+ - Return the array of values
+
+//      10
+//   6     15
+// 3  8      20
+
+visited = [10, 6, 3, 8, 15, 20];
+
+
+Depth First Search (Down) PostOrder
+Steps - Recursively
+ - Create a variable to store the values of Nodes visited
+ - Store the root of the tree in a variable called current
+ - Write a helper function which accepts a Node
+  - Push the value of the Node to the variable that stores the values
+  - If the Node has a left property, call the helper function with the left property on the Node
+  - If the Node has a right property, call the helper function with the right property on the Node
+ - Invoke the helper function with the current variable
+ - Return the array of values
+
+//      10
+//   6     15
+// 3  8      20
+
+visited = [3, 8, 6, 20, 15, 10];
+
+
+Depth First Search (Down) InOrder
+Steps - Recursively
+ - Create a variable to store the values of Nodes visited
+ - Store the root of the tree in a variable called current
+ - Write a helper function which accepts a Node
+  - If the Node has a left property, call the helper function with the left property on the Node
+  - Push the value of the Node to the variable that stores the values
+  - If the Node has a right property, call the helper function with the right property on the Node
+ - Invoke the helper function with the current variable
+ - Return the array of values
+
+//      10
+//   6     15
+// 3  8      20
+
+visited = [3, 6, 8, 10, 15, 20];

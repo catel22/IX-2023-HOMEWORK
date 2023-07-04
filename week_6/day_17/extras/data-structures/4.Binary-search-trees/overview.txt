@@ -1,0 +1,31 @@
+Trees:
+ - A data structure that consists of nodes in a parent/child relationship
+ - Top Node is the root
+ - A child is Node directly connected to another Node when moving away from the root
+ - A parent is the converse notion of a child
+ - Siblings are a group of Nodes with the same parent
+ - A leaf is a Node with no children
+ - The edge is the connection between one Node and another
+ - Trees are non-linear
+ - A Node can only point to a child, not a parent or sibling
+
+Uses for Trees:
+ - HTML DOM
+ - Network Routing
+ - Abstract syntax trees (Used to describe the syntax of a programming language)
+ - Artificial Intelligence 
+ - Folders in operating system
+ - JSON
+
+Binary Trees:
+ - Each Node can have at most 2 children
+
+Binary Search Trees:
+ - Sorted in a particular way
+ - Used to store data that is comparable
+ - Less to the left, greater to the right on any parent Node
+ - Search becomes very quick
+
+Big-O of BST:
+ - Insertion 0(log n) 
+ - Searching 0(log n)

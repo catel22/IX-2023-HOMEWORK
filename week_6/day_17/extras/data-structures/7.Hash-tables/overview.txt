@@ -1,0 +1,30 @@
+Hash Tables (Hash Map):
+ - JS has Objects & Maps
+ - Hash tables are used to store key-value pairs
+ - They are like arrays, but the keys are not ordered
+ - Unlike arrays, hash tables are fast for all of the following operations:
+  - Finding values
+  - Adding new values
+  - Removing values
+
+Th HASH part
+ - To implement using an array
+ - In order to look up values by key, we need a way to convert keys into valid array indices
+ - A function that performs this task is called a hash function
+
+Intro to Hash Functions:
+- Takes an input of any size and outputs a value of constant size
+
+What makes a good hash function?
+ - Fast (ie: constant time)
+ - Doesn't cluster outputs at specific indecies, but distributes uniformly
+ - Deterministic (same input yields same output)
+
+Dealing with collisions:
+ - Separate Chaining (array of values at an index)
+ - Linear Probing (checking if index contains a value, move value to next index (if no value there))
+
+Big-O of Hash Tables:
+ - Insertion 0(1) 
+ - Removal 0(1) 
+ - Access 0(1)

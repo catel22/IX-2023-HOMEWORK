@@ -1,0 +1,10 @@
+Doubly Linked Lists:
+- Almost identical to single except every node has another pointer to the previous node
+- More memory === More flexibility
+
+Big-O Complexity (N is the length)
+
+ - Insertion O(1)
+ - Removal O(1)
+ - Searching O(N)
+ - Access O(N)

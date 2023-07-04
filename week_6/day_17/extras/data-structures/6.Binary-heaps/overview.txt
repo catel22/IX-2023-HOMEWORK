@@ -1,0 +1,76 @@
+Heaps are another category of trees
+
+Binary Heaps:
+ - Very similar to binary search tree, but some different rules
+ - In a MaxBinaryHeap, parent nodes are always larger then child nodes
+ - in a MinBinaryHeap, parent nodes are always smaller then child nodes
+ - At most 2 children
+
+Max Binary Heaps:
+ - At most 2 children
+ - Value of each parent node is always larger then child nodes
+ - No guarantess between sibling nodes
+ - A binary heap is as compact as possible. All the childrent of each node are as full as they can be and left children are filled out first
+
+Min Binary Heaps:
+ - At most 2 children
+ - Value of each parent node is always smaller then child nodes
+ - No guarantess between sibling nodes
+ - A binary heap is as compact as possible. All the childrent of each node are as full as they can be and left children are filled out first
+
+Why?
+ - Binary Heaps are used to implement priority queues
+ - They are also used quite a bit with graph traversal algorithms
+
+From Parent Node to Child Node:
+ - For any index of an array n
+ - The left child is stored at 2n+1
+ - The right child is at 2n+2
+
+From Child Node to parent Node:
+ - For any child node at index n
+ - Its parent is at index (n-1)/2 floored
+
+
+MaxBinaryHeap Insert:
+ - Add to the end
+ - Bubble up
+
+ - Push the value into the values property on the heap 
+ - Bubble up:
+  - Create a variable called index which is the length of the values property -1
+  - Create a variable called parentIndex which is the floor of (index-1)/2
+  - Keep looping as long as the values element at the parentIndex is less than the values element at the child index
+   - Swop that value of the values element at the parentIndex with the value of the element property at the child index
+   - Set the index to be the parentIndex, and start over
+
+MaxBinaryHeap Remove (Extract Max):
+ - Remove the root
+ - Replace with the most recently added
+ - Adjust (sink down)
+
+ - Swap the first value in the values property with the last one
+ - Pop from the values property, so you can return the value at the end
+ - Have the new root 'sink down' to the correct spot
+  - Your parent index starts at 0 (the root)
+  - Find the index of the left child: 2*index+1 (make sure it's not out of bounds)
+  - Find the index of the right child: 2*index+2 (make sure it's not out of bounds)
+  - If the left or right child is greater then the element...swop. If both left and right children are larger
+    swop the largest child.
+  - The child index you swopped to now becomes the new parent index
+  - Keep looping until neither child is larger then the element
+  - Return the old root
+
+Sink Down?
+ - The procedure fro deleting the root node from the heap (effectively extracting the maximum element in a max-heap or 
+   the minimum element in a min-heap) and restoring the properties is called down-heap (also known as bubble-down,
+   percolate-down, sift-down, trickle-down, heapify-down, cascade-down, and extract-min/max)
+
+Priority Queue:
+ - A data structure where each element has a priority.
+ - Elements with higher priorities are served before elements with lower priorities
+
+Big-O of Binary Heaps:
+ - Insertion 0(log N) 
+ - Removal 0(log N) 
+ - Searching 0(N)

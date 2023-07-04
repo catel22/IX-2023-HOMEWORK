@@ -1,0 +1,30 @@
+Stack:
+ - Abstract data structure
+ - A collection of data
+ - LIFO (Last in first out)
+
+Uses:
+ - Managing function invocations
+ - Undo/redo
+ - Routing (the history object) is treated like a stack
+
+Big-O of Stacks:
+ - Insertion 0(1) 
+ - Removal 0(1)
+ - Searching 0(N)
+ - Accessing 0(N)
+
+
+Queue:
+ - FIFO (First in first out)
+
+Uses:
+ - Background tasks
+ - Uploading resources
+ - Print/Task processing
+
+Big-O of Queue:
+ - Insertion 0(1) 
+ - Removal 0(1)
+ - Searching 0(N)
+ - Accessing 0(N)
